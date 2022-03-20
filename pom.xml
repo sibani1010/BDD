@@ -36,6 +36,26 @@
     <artifactId>cucumber-html</artifactId>
     <version>0.2.7</version>
 </dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-picocontainer</artifactId>
+    <version>4.3.0</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-testng</artifactId>
+    <version>4.2.3</version>
+</dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>6.2.0</version>
+    <scope>compile</scope>
+</dependency>
+
+
+
 <!-- https://mvnrepository.com/artifact/net.sourceforge.cobertura/cobertura -->
 <dependency>
     <groupId>net.sourceforge.cobertura</groupId>
@@ -90,6 +110,12 @@
     <version>1.8</version>
     <scope>system</scope>
     <systemPath>C:\Program Files\Java\jdk1.8.0_131\lib\tools.jar</systemPath>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.1.2</version>
 </dependency>
 
   </dependencies>
