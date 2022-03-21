@@ -7,12 +7,12 @@ import cucumber.api.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-	feature = ".//Features/Login.feature",
+	features = ".//Features/Login.feature",
     glue = "stepDefinations",
-    dryRun=true,
-	plugin= {"pretty","html:test-output"
-			
-	}
+    monochrome=true,
+	plugin= {"pretty",
+			"html:test-output"
+			}
 	
 )
 public class TestRunner {
