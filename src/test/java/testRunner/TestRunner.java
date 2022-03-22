@@ -7,9 +7,10 @@ import cucumber.api.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-	features = ".//Features/Login.feature",
+	features = ".//Features/Customers.feature",
     glue = "stepDefinations",
     monochrome=true,
+    dryRun = false,
 	plugin= {"pretty",
 			"html:test-output"
 			}

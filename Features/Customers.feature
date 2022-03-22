@@ -8,8 +8,9 @@ And   Click on Login
 Then  User can view Dashboard
 When User click on cutomers Menu
 And  click on customers Menu Item
-And  click on Add new customer page
+And  click on Add new button
+Then User can view Add new customer page
 When User enter customer info
 And click on Save button
 Then User can view confirmation message "The new cutomer has been added successfully."
-And close browser
+And Close browser

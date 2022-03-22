@@ -1,5 +1,6 @@
 package stepDefinations;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -7,12 +8,13 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.*;
+
+import pageObjects.AddcustomerPage;
 import pageObjects.LoginPage;
 
-public class Steps {
+public class Steps extends BaseClass {
 	
-public WebDriver driver;
-public LoginPage loginPage;
+
 
 @Given("User Launch Chrome browser")
 public void user_launch_chrome_browser() {
@@ -67,5 +69,75 @@ public void close_browser() {
    
 driver.close();
 }
+
+
+//Customers feature
+
+
+
+@Then("User can view Dashboard")
+public void user_can_view_Dashboard() {
+   
+	addCust= new AddcustomerPage(driver);
+	Assert.assertEquals("Dashboard / nopCommerce administration",addCust.getPageTitle());
+	
+}
+
+@When("User click on cutomers Menu")
+public void user_click_on_cutomers_Menu() throws InterruptedException {
+	Thread.sleep(3000);
+   addCust.clickOnCustomersMenu();
+}
+
+@When("click on customers Menu Item")
+public void click_on_customers_Menu_Item() throws InterruptedException {
+	Thread.sleep(3000);
+	addCust.clickOnCutomersMenuItem();
+   
+}
+
+@When("click on Add new button")
+public void click_on_Add_new_button() throws InterruptedException {
+	addCust.clickOnAddnew();
+	Thread.sleep(3000);
+    
+}
+
+@Then("User can view Add new customer page")
+public void user_can_view_Add_new_customer_page() {
+	
+	Assert.assertEquals("Add a new customer / nopCommerce administration",addCust.getPageTitle());
+	
+   
+}
+@When("User enter customer info")
+public void user_enter_customer_info() {
+    
+	String email = randomString()+"@gmail1.com";
+	addCust.setEmail(email);
+	addCust.setPassword("test123");
+	addCust.setGender("Male");
+	addCust.setFirstName("abcd");
+	addCust.setLastName("efgh");
+	addCust.setDob("8/09/1997");
+	addCust.setCompanyName("okok");
+	addCust.setAdminContent("comments.....");
+	
+}
+
+@When("click on Save button")
+public void click_on_Save_button() throws InterruptedException {
+    addCust.clickOnSave();
+    Thread.sleep(3000);
+}
+
+@Then("User can view confirmation message {string}")
+public void user_can_view_confirmation_message(String message) {
+	
+	Assert.assertTrue(driver.findElement(By.tagName("body")).getText()
+			.contains("The new customer has been added successfully"));
+		
+}
+
 
 }
